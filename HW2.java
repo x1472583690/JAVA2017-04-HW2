@@ -29,22 +29,25 @@ class HW2{
 								if(tokens[3].equals("Least Concern")){
 									temp = tokens[0]+"/"+tokens[1]+"(LC)";
 								}
-									System.out.println(temp);
-									All_Animeal[i]=temp;
+									if(tokens[3].equals("Unknow")){
+										temp = tokens[0]+"/"+tokens[1]+"(Unknow)";
+									}
+										System.out.println(temp);
+										All_Animeal[i]=temp;
 			}
-									while(true){	
-										Scanner scn_Chinese =new Scanner (System.in);
-										System.out.println("\tEnter Search_Chinese");
-										String ser_Chinese = scn_Chinese.next();
-											for(int j=0;j<All_Animeal.length;j++){
-												int find_Chinese = All_Animeal[j].indexOf(ser_Chinese);
+										while(true){	
+											Scanner scn_Chinese =new Scanner (System.in);
+											System.out.println("\tEnter Search_Chinese");
+											String ser_Chinese = scn_Chinese.next();
+												for(int j=0;j<All_Animeal.length;j++){
+													int find_Chinese = All_Animeal[j].indexOf(ser_Chinese);
 													if(find_Chinese>=0){
 														System.out.println(All_Animeal[j]);	
 													}		
-											}
+												}
 														if(ser_Chinese.equalsIgnoreCase("EXIT")){ 
 															break;
 														}
-									}												
+										}												
 	}
 }
