@@ -1,49 +1,50 @@
 import java.util.*;
 import java.io.*;
-class test{
+class HW2{
 	public static void main(String[]args)throws Exception{
 		String [] All_Animeal = new String [101];
-		String temp,temp2,temp3,temp4;
-		File fi =  new File("M:/2017 四下/HW2/endangeredSpecies.txt");
-		Scanner scn =new Scanner (fi);
+		String temp;
+		File file_txt =  new File("M:/2017 四下/HW2/endangeredSpecies.txt");
+		Scanner scn =new Scanner (file_txt);
 		for(int i=0;i<All_Animeal.length;i++){
 			temp = scn.nextLine();
 			All_Animeal[i] = temp;
 		}
-		Arrays.sort(All_Animeal);
+			Arrays.sort(All_Animeal);
 			for(int i=1;i<All_Animeal.length;i++){
-				temp3=All_Animeal[i];
-				String[]tokens1=temp3.split(",");
-				temp4 = tokens1[0]+"/"+tokens1[1]+tokens1[3];
-				if(tokens1[3].equals("Endangered")){temp4 = tokens1[0]+"/"+tokens1[1]+"(EN)";
+				temp=All_Animeal[i];
+				String[]tokens=temp.split(",");
+				if(tokens[3].equals("Endangered")){
+					temp = tokens[0]+"/"+tokens[1]+"(EN)";
 				}
-					if(tokens1[3].equals("Critically Endangered")){temp4 = tokens1[0]+"/"+tokens1[1]+"(CR)";
+					if(tokens[3].equals("Critically Endangered")){
+						temp = tokens[0]+"/"+tokens[1]+"(CR)";
 					}
-						if(tokens1[3].equals("Vulnerable")){temp4 = tokens1[0]+"/"+tokens1[1]+"(VU)";
+						if(tokens[3].equals("Vulnerable")){
+							temp = tokens[0]+"/"+tokens[1]+"(VU)";
 						}
-							if(tokens1[3].equals("Near Threatened")){temp4 = tokens1[0]+"/"+tokens1[1]+"(NT)";
+							if(tokens[3].equals("Near Threatened")){
+								temp = tokens[0]+"/"+tokens[1]+"(NT)";
 							}
-								if(tokens1[3].equals("Least Concern")){temp4 = tokens1[0]+"/"+tokens1[1]+"(LC)";
+								if(tokens[3].equals("Least Concern")){
+									temp = tokens[0]+"/"+tokens[1]+"(LC)";
 								}
-									System.out.println(temp4);
-			}						
+									System.out.println(temp);
+									All_Animeal[i]=temp;
+			}
 									while(true){	
-									Scanner scn_Chinese =new Scanner (System.in);
-									System.out.println("Enter Search_Chinese");
-									String ser_Chinese = scn_Chinese.next();
-									ser_Chinese = ser_Chinese.toUpperCase();
-										for(int j=0;j<All_Animeal.length;j++){
-											int find_Chinese = All_Animeal[j].indexOf(ser_Chinese);
-												if(find_Chinese>=0){
-													System.out.println(All_Animeal[j]);	
-												}		
-										}
-												
-													if(ser_Chinese.equals("EXIT")){ 
-														break;
-													}
-			
-									}
-													
+										Scanner scn_Chinese =new Scanner (System.in);
+										System.out.println("\tEnter Search_Chinese");
+										String ser_Chinese = scn_Chinese.next();
+											for(int j=0;j<All_Animeal.length;j++){
+												int find_Chinese = All_Animeal[j].indexOf(ser_Chinese);
+													if(find_Chinese>=0){
+														System.out.println(All_Animeal[j]);	
+													}		
+											}
+														if(ser_Chinese.equalsIgnoreCase("EXIT")){ 
+															break;
+														}
+									}												
 	}
 }
