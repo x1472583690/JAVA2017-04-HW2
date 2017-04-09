@@ -31,14 +31,15 @@ class test{
 									Scanner scn_Chinese =new Scanner (System.in);
 									System.out.println("Enter Search_Chinese");
 									String ser_Chinese = scn_Chinese.next();
+									ser_Chinese = ser_Chinese.toUpperCase();
 										for(int j=0;j<All_Animeal.length;j++){
 											int find_Chinese = All_Animeal[j].indexOf(ser_Chinese);
 												if(find_Chinese>=0){
 													System.out.println(All_Animeal[j]);	
 												}		
 										}
-												ser_Chinese = ser_Chinese.toUpperCase();
-												if(ser_Chinese.equals("EXIT")){ 
+												
+													if(ser_Chinese.equals("EXIT")){ 
 														break;
 													}
 			
